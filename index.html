@@ -212,49 +212,6 @@
     </form>
   </div>
 </div>
-
-<script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyMecko2qcnUfuo2cWisSuHhnzGWLQNEX7rqHCMMqx3byuJMyQZPm9UFQDPhBRv_2Nq/exec";
-  const form = document.getElementById("contact-form");
-  const btnKirim = document.querySelector(".btn-kirim");
-  const btnLoading = document.querySelector(".btn-loading");
-  const myAlert = document.querySelector(".my-alert");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    btnLoading.classList.toggle("d-none");
-    btnKirim.classList.toggle("d-none");
-
-    const data = new FormData(form);
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      if (response.ok) {
-        myAlert.classList.remove("d-none");
-        form.reset();
-        setTimeout(() => {
-          myAlert.classList.add("d-none");
-        }, 5000); // hide alert after 5 seconds
-      } else {
-        const result = await response.json();
-        console.error("Error!", result);
-        alert(result.errors ? result.errors.map(error => error.message).join(", ") : "Oops! There was a problem submitting your form");
-      }
-    } catch (error) {
-      console.error("Error!", error);
-      alert("Oops! There was a problem submitting your form");
-    }
-
-    btnLoading.classList.toggle("d-none");
-    btnKirim.classList.toggle("d-none");
-  });
-</script>
-
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
@@ -289,7 +246,7 @@
       gsap.from(".display-4", { duration: 1, x: -50, opacity: 0, delay: 0.5, ease: "back" });
     </script>
 
-    <script>
+   <script>
   const scriptURL = "https://script.google.com/macros/s/AKfycbyMecko2qcnUfuo2cWisSuHhnzGWLQNEX7rqHCMMqx3byuJMyQZPm9UFQDPhBRv_2Nq/exec";
   const form = document.getElementById("contact-form");
   const btnKirim = document.querySelector(".btn-kirim");
